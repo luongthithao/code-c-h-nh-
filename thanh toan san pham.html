@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán sản phẩm</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            color: #111;
+            line-height: 1.15;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://img.thuthuatphanmem.vn/uploads/2018/10/01/hinh-nen-mau-hong-cute-de-thuong_040307620.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .product-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .product-details img {
+            max-width: 300px;
+            max-height: 300px;
+            height: auto;
+        }
+
+        .quantity-input {
+            width: 50px;
+        }
+
+        .total-price {
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #446084;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #344670;
+        }
+    </style>
+</head>
+<body>
+
+<div class="product-container">
+    <div class="product-details">
+        <img src="https://product.hstatic.net/1000075078/product/1700837665_tra-sua-tra-xanh-tay-bac-ly-thuy-tinh_61318eefd16c4a3fa169e19021dd6958_large.jpg"
+                    alt="">
+        <div>
+            <h4>CloudTea Trà Xanh Tây Bắc</h4>
+            <p>49.000 đồng</p>
+        </div>
+    </div>
+
+    <div>
+        <label for="quantity">Số lượng:</label>
+        <input type="number" id="quantity" class="quantity-input" value="1" min="1">
+    </div>
+
+    <div class="total-price">
+        <p>Tổng giá: <span id="totalPrice">49.000</span> đồng</p>
+    </div>
+
+    <button onclick="checkout()">Thanh toán</button>
+</div>
+
+<script>
+    function checkout() {
+        var productPrice = 49000;
+        var quantity = parseInt(document.getElementById("quantity").value);
+        var totalPrice = productPrice * quantity;
+        document.getElementById("totalPrice").innerText = totalPrice.toLocaleString();
+    }
+</script>
+
+</body>
+</html>
